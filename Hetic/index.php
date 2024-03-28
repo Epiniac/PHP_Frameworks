@@ -190,7 +190,7 @@
         function factorial($n){
             $factorial = 1; 
             for ($i = 1; $i <= $n; $i++){ 
-            $factorial = $factorial * $i; 
+                $factorial = $factorial * $i; 
             } 
             return $factorial; 
         }
@@ -222,6 +222,25 @@
             }
             return $sumArr;
         }
+
+        function somme_array(array $arr1, array $arr2) : array {
+            $len1 = count($arr1);
+            $len2 = count($arr2);
+            if ($len1 > $len2) {
+                foreach ($arr2 as $key => $value) {
+                    $arr1[$key] = $arr1[$key] + $value;
+                }
+                return $arr1;
+            }
+
+            else {
+                foreach ($arr1 as $key => $value) {
+                    $arr2[$key] = $arr2[$key] + $value;
+                }
+                return $arr2;
+            }
+        }
+
         $tableau = array_fill(0, 10, array_fill(0, 10, false));
         $tableau[rand(0, 9)][rand(0, 9)] = true;
         function displayMap($array){
@@ -317,7 +336,7 @@
             }
         }
 
-        mainVariant("Belle Marquise, vos beaux yeux, me font mourir d'amour, telle l'aurore.");
+        mainVariant("Belle Marquise, vos beaux yeux, me font mourir d'amour.");
     ?>
 </body>
 </html>

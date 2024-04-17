@@ -29,6 +29,7 @@
         <?php if (!empty($_SESSION['username'])) : ?>
             <a href="deconnexion.php">Log out</a>
         <?php else : ?>
+            <a href="signup.php">Sign in</a>
             <a href="connexion.php">Log in</a>
         <?php endif; ?>
     </nav>

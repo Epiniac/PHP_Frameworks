@@ -13,15 +13,19 @@
 
     $log = validUser($_POST['username'],$_POST['password']);
 
-    if (!empty($_POST['username'])&& !empty($_POST['password'])) {
-        if ($log) {
-            $_SESSION['username'] = $log["username"];
-            $_SESSION['secret'] = $log["secret"];
+    if (isset($_COOKIE['username'])) {
+        setcookie($_POST['username'],$_POST['password'], time() + 60 * 60 * 24 * 30);
+        $cookie_value = $_COOKIE['username'];
+        if (!empty($_POST['username'])&& !empty($_POST['password'])) {
+            if ($log) {
+                $_SESSION['username'] = $log["username"];
+                $_SESSION['secret'] = $log["secret"];
+            }
         }
-    }
-    else {
-            die('Wrong login or password...');
-    }
+        else {
+            echo 'Invalid username or password';
+        }
+      }
 
-    header('location: accueil.php');
-
+      header('location: accueil.php');
+    exit();

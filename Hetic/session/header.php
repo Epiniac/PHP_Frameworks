@@ -1,37 +1,33 @@
-<?php session_start()?>
+<?php include './traitement_toutes_pages.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
-</head>
-<style>
-    nav{
-        background-color: blueviolet;
-        display: flex;
-        justify-content: space-around;
-        margin: 0 0;
-        padding: 25px;
-    }
+    <title>Document</title>
 
-    a{
-        color: white;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-size: larger;
-    }
-    
-</style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
 <body>
-    <nav>
-        <a href="accueil.php">Lobby</a>
-        <a href="about.php">About</a>
-        <?php if (!empty($_SESSION['username'])) : ?>
-            <a href="deconnexion.php">Log out</a>
+    <nav class="flex justify-around gap-8 items-center text-gray-100 bg-gray-900 p-8">
+
+        <a href="accueil.php">Accueil</a>
+        <a href="about.php">A propos</a>
+
+        <?php if (!empty($_SESSION['pseudo'])) : ?>
+            <a href="deconnexion.php">Déconnexion</a>
+            <p class="flex items-center">
+                Bonjour, <?= $_SESSION['pseudo'] ?>
+
+                <?php if (!empty($_SESSION['avatar'])) : ?>
+                    <img class="rounded-full w-12 h-12 ml-4" src="avatars/<?= $_SESSION['avatar'] ?>" alt="">
+                <?php endif; ?>
+            </p>
+
         <?php else : ?>
-            <a href="signup.php">Sign in</a>
-            <a href="connexion.php">Log in</a>
+            <a href="connexion.php">Connexion</a>
+            <a href="inscription.php">Inscription</a>
         <?php endif; ?>
     </nav>
-</body>
-</html>

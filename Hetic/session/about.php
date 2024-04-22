@@ -1,9 +1,4 @@
 <?php include './header.php'; ?>
-<h2>HETIC</h2>
-<p>I'm learning...</p>
-<?php if (!empty($_SESSION['username'])) : ?>
-<h2>Your secret is: <?= $_SESSION['secret']?></h2>
-<?php else : ?>
-    <h1>Please log in to access your information</h1>
-<?php endif; ?>
+<h1>A propos</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, praesentium! Voluptate rerum soluta eaque facilis aperiam sequi et, molestiae quidem reprehenderit. Magnam aut perferendis autem dolor minus harum necessitatibus mollitia?</p>
 <?php include './footer.php'; ?>
